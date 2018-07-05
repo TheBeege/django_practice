@@ -1,0 +1,27 @@
+<h2>Documents</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if doc_list %}
+        {% for doc in doc_list %}
+        <tr>
+            <td><a href="/docs/{{ doc.id }}">{{ doc.title }}</a></td>
+            <td>
+                {% for author in doc.author.all %}
+                    <a href="{% url 'docs:view_doc' doc.id %}">{{ author.name }}</a><br />
+                {% endfor %}
+            </td>
+            <td>{{ doc.created_at }}</td>
+            <td>{{ doc.updated_at }}</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+<h1>{{ doc.title }}</h1>
+<h2>by {% for author in doc.author.all %}
+    {{ author.name }} |
+{% endfor %}</h2>
+<h5>Created {{ doc.created_at }}. Updated {{ doc.updated_at }}.</h5>
+<p>{{ doc.body }}</p>
