@@ -16,7 +16,8 @@ class Document(models.Model):
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    author = models.ManyToManyField(User)
+    author = models.ManyToManyField(User, related_name='authored_docs')
+    likes = models.ManyToManyField(User, related_name='liked_docs')
 
     def __str__(self):
         return 'Document {} by {}'.format(self.title, self.author.name)

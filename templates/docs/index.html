@@ -6,6 +6,7 @@
         <th>Authors</th>
         <th>Created At</th>
         <th>Updated At</th>
+        <th>Likes</th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             </td>
             <td>{{ doc.created_at }}</td>
             <td>{{ doc.updated_at }}</td>
+            <td>{{ doc.likes.count }}</td>
         </tr>
         {% endfor %}
     {% endif %}
